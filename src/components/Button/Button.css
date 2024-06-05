@@ -1,9 +1,9 @@
 .Button {
 display: inline-flex;
 border-radius: 28px;
-padding: 16px 48px;
-max-width: 340px;
-height: 56px;
+padding: 10px 15px;
+max-width: 150px;
+width: 100%;
 background: #6A5DC2;
 border-radius: 28px;
 border: none;
@@ -12,13 +12,16 @@ align-items: center;
 gap: 12px;
 font-family: 'Play';
 font-weight: 700;
-font-size: 18px;
+font-size: 15px;
 line-height: 133%;
-color: var(--content-primary);
+color: #e5e5e5;
+font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+transition: all .3s ease-in-out;
 }
 
 .Button:hover {
  background-color: rgb(214, 210, 241);
+ color: #000;
 }
 
 .Button:focus,
@@ -26,30 +29,33 @@ color: var(--content-primary);
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-.Button.outline {
+.Button.done {
+  max-width: 100px;
   border: none;
-  background: transparent;
-  color: #000;
+  background: green;
+  color: #fff;
   outline: none;
-  cursor: pointer;
 }
 
 .Button.primary[disabled] {
   background: #e5e5e5;
   border: #e5e5e5;
-  color: #878787;
+  color: #fff;
 }
 
-.Button.icon {
-  max-width: 68px;
-  width: 100%;
-  min-height: 56px;
-  background: #333;
+.Button.delete {
+  max-width: 100px;
+  background: red;
   border: #e5e5e5;
-  color: #878787;
+  color: #fff;
+  outline: none;
 }
 
-.Button.icon:hover {
+.Button.done:hover {
+  background-color: rgb(214, 210, 241);
+}
+
+.Button.delete:hover {
   background-color: rgb(214, 210, 241);
 }
 

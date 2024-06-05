@@ -1,14 +1,12 @@
 import './App.css'
-import Calendar from './components/Calendar/Calendar';
-import { whatMonth } from './ui/whatMonth'
+import { Account } from './components/Account/Account';
 
 function App() {
-const month = whatMonth();
+
 
   return (
-    <> 
-    <div>Ваш список дел на {month}</div>
-     <Calendar/> 
+    <>
+      <Account/> 
     </>
   )
 }
