@@ -1,7 +1,7 @@
 import './Button.css';
 
 type TProps = {
-    type?: 'primary' | 'done' | 'delete';
+    type?: 'primary' | 'done' | 'delete' | 'data' | 'data-choose' | 'add';
     disabled?: boolean;
     onClick?: (e: React.SyntheticEvent<HTMLButtonElement>) => void;
     children: React.ReactNode;

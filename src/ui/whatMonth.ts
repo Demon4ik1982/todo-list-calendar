@@ -1,4 +1,4 @@
-export function whatMonth() {
+export function whatMonth(): string {
     const today = new Date();
     today.getMonth()
 
@@ -14,4 +14,5 @@ export function whatMonth() {
     if(today.getMonth() === 9) return 'Октябрь'
     if(today.getMonth() === 10) return 'Ноябрь'
     if(today.getMonth() === 11) return 'Декабрь'
+    return ''
 }

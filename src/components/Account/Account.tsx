@@ -1,15 +1,21 @@
-import Calendar from '../Calendar/Calendar';
 import { AuthForm } from '../AuthForm';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import ChooseDate from '../ChooseDate/ChooseDate';
 
 
 export const Account = () => {
   const [username, setUsername] = useState('');
+  const localData = localStorage.getItem(`user`)
+
+
+  useEffect(() => {
+    if (localData !== null && localData !== '') setUsername(JSON.parse(localData));
+  }, []);
 
 if (username !== '' && username !== undefined) {
   return (
     <>
-      <Calendar name={username} setNewUser={setUsername}/>
+      <ChooseDate name={username} setNewUser={setUsername}/>
     </>
   )
 }

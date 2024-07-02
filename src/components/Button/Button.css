@@ -4,7 +4,7 @@ border-radius: 28px;
 padding: 10px 15px;
 max-width: 150px;
 width: 100%;
-background: #6A5DC2;
+background: #0c6631;
 border-radius: 28px;
 border: none;
 justify-content: center;
@@ -12,15 +12,16 @@ align-items: center;
 gap: 12px;
 font-family: 'Play';
 font-weight: 700;
-font-size: 15px;
+font-size: 20px;
 line-height: 133%;
-color: #e5e5e5;
+color: #ffffff;
 font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+box-shadow: inset 1px 1px 10px black;
 transition: all .3s ease-in-out;
 }
 
 .Button:hover {
- background-color: rgb(214, 210, 241);
+ background-color: rgb(255, 255, 255);
  color: #000;
 }
 
@@ -35,6 +36,55 @@ transition: all .3s ease-in-out;
   background: green;
   color: #fff;
   outline: none;
+  font-size: 15px;
+  box-shadow: none;
+}
+
+.Button.data {
+  max-width: 100px;
+  border: none;
+  background: transparent;
+  color: #000;
+  outline: none;
+  padding: 5px;
+  box-shadow: none;
+  position: relative;
+}
+
+.Button.data:hover {
+  color: grey;
+}
+
+.Button.data::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background-color: grey;
+    opacity: 0;
+    transition: opacity .3s ease-in-out, background-color .3s ease-in-out;
+}
+
+.Button.data:hover::before {
+    opacity: 1;
+}
+
+.Button.data-choose {
+  border-radius: 10px;
+  padding: 5px;
+  box-shadow: none;
+}
+
+.Button.add {
+  font-size: 15px;
+  background-color: #2a3ef1;
+  box-shadow: none;
+}
+
+.Button.add:hover {
+  background-color: #0b1997;
+  color: #fff;
 }
 
 .Button.primary[disabled] {
@@ -45,18 +95,19 @@ transition: all .3s ease-in-out;
 
 .Button.delete {
   max-width: 100px;
-  background: red;
+  background-color: red;
   border: #e5e5e5;
   color: #fff;
   outline: none;
-}
-
-.Button.done:hover {
-  background-color: rgb(214, 210, 241);
+  font-size: 15px;
+  box-shadow: none;
 }
 
 .Button.delete:hover {
-  background-color: rgb(214, 210, 241);
+  background-color: rgb(134, 5, 5);
 }
 
+.Button.done:hover {
+  background-color: rgb(3, 80, 3);
+}
 
