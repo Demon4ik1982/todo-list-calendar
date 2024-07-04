@@ -12,14 +12,15 @@ type IModalProps = {
   setActive: React.Dispatch<React.SetStateAction<boolean>>;
   todayNote: string;
   todayMonth: string;
+  year: string;
 }
 
 
-const Modal = ({ username, active, setActive, todayNote, todayMonth }: IModalProps) => {
+const Modal = ({ username, active, setActive, todayNote, todayMonth, year }: IModalProps) => {
   const [note, setNote]=useState('')
 
   let noteList = []
-  const localData = localStorage.getItem(`${username}-${todayMonth}-${todayNote}`)
+  const localData = localStorage.getItem(`${username}-${year}-${todayMonth}-${todayNote}`)
   if (localData !== null && localData !== '') noteList = JSON.parse(localData)
 
 
@@ -34,13 +35,12 @@ const Modal = ({ username, active, setActive, todayNote, todayMonth }: IModalPro
       }
 
       noteList.push(newNote)
-      setNoteData(noteList, `${username}-${todayMonth}-${todayNote}`)
+      setNoteData(noteList, `${username}-${year}-${todayMonth}-${todayNote}`)
       setNote('');
   };
 
   return (
     <div className={active ? "modal active" : "modal"} onClick={() => setActive(false)}>
-
       <div className="modal__content" onClick={e => e.stopPropagation()}>
         <div className='modal__content-wrapper'>
           <h2>Список дел на {todayNote} {correctMonth(todayMonth)} </h2>
@@ -55,12 +55,7 @@ const Modal = ({ username, active, setActive, todayNote, todayMonth }: IModalPro
             <Button type='add' >Добавить дело</Button>
           </form>
         </div>
-        <TodoList keyId={`${username}-${todayMonth}-${todayNote}`}/>
-        <div className="modal__btn" onClick={() => setActive(false)}>
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M10.5859 12L2.79297 4.20706L4.20718 2.79285L12.0001 10.5857L19.793 2.79285L21.2072 4.20706L13.4143 12L21.2072 19.7928L19.793 21.2071L12.0001 13.4142L4.20718 21.2071L2.79297 19.7928L10.5859 12Z" fill="black" />
-        </svg>
-      </div>
+        <TodoList keyId={`${username}-${year}-${todayMonth}-${todayNote}`}/>
       </div>
     </div>
   )

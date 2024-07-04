@@ -5,19 +5,19 @@ import './TodoList.css'
 import { ToDo } from "../../model/todoNote";
 
 type IListProps = {
-    keyId: string 
+    keyId: string
 }
 
 const TodoList = ({keyId}: IListProps) => {
     const localData = localStorage.getItem(keyId)
-    
-    
+
+
     let list:ToDo = [];
     if (localData !== null && localData !== '') list = JSON.parse(localData)
-    
-    
+
+
     const[todo, setTodo]=useState<ToDo>(list)
-    todo;  
+    todo;
     const removeTodo = (index:number) => {
         const newTodo = list.filter((_, i) => i !== index)
         setNoteData(newTodo, keyId)
@@ -36,9 +36,8 @@ const TodoList = ({keyId}: IListProps) => {
           })
           setNoteData(list, keyId)
           setTodo(list)
-
       };
-        
+
     if (list.length === 0) {
         return (
             <>
@@ -62,7 +61,7 @@ const TodoList = ({keyId}: IListProps) => {
                     </li>
                 ))
             }
-        </ul>        
+        </ul>
         </>
     )
 }

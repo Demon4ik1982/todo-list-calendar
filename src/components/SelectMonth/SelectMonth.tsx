@@ -24,7 +24,7 @@ const SelectMonth = ({active, setToday, setMonth, setSelectMonth, setYear, year}
             name="year"
             min={1900}
             max={2099}
-            placeholder='Введите ваше имя'
+            placeholder='Введите год'
             onChange={(event) => setYear(event.target.value)}
             value={year}
           />

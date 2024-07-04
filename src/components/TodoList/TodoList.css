@@ -12,20 +12,19 @@
 .todo__item-content{
     display: flex;
     width: 100%;
+    align-items: center;
     justify-content: space-between;
     flex-wrap: nowrap;
     gap: 10px;
-
 }
 
 .todo__item{
     display: flex;
     align-items: center;
-    padding: 5px 15px;
+    padding: 5px;
     width: 100%;
     text-align: left;
-    border-radius: 15px;
-    background-color: aqua;
+    border-bottom: 1px solid black;
 }
 
 .todo__item.done{
@@ -36,4 +35,14 @@
 .todo__item-wrapper{
     display: flex;
     gap: 5px;
+}
+
+@media (max-width: 410px) {
+  .todo__item {
+    font-size: 10px;
+  }
+
+  .form-field input{
+    font-size: 12px;
+  }
 }

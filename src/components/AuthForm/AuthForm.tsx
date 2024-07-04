@@ -3,6 +3,7 @@ import './AuthForm.css';
 import { FormField } from '../FormField/FormField';
 import { Button } from '../Button/Button';
 import { stringСonversion } from '../../ui/stringСonversion';
+import { setUserData } from '../../ui/setUserData';
 
 type TUser = {
   setUser: React.Dispatch<React.SetStateAction<string>>
@@ -15,6 +16,7 @@ export const AuthForm = ({setUser}: TUser) => {
   const handleSubmit: FormEventHandler<HTMLFormElement> = (event) => {
     event.preventDefault();
     setUser(stringСonversion(username.trim()))
+    setUserData(username, 'user')
   };
 
   return (

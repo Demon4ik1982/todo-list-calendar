@@ -9,6 +9,7 @@
 }
 
 .calendar__list{
+    position: relative;
     display: flex;
     flex-wrap: wrap;
     width: 100%;
@@ -24,18 +25,19 @@
 }
 
 .calendar__item{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 10px;
-    width: 20px;
-    height: 20px;
-    font-weight: 700;
-    border: transparent;
-    border-radius: 10px;
-    background-color: rgb(255, 255, 255);
-    cursor: pointer;
-    transition: all .3s ease-in-out;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  width: 20px;
+  height: 20px;
+  font-weight: 700;
+  border: transparent;
+  border-radius: 10px;
+  background-color: rgb(255, 255, 255);
+  cursor: pointer;
+  transition: all .3s ease-in-out;
 }
 
 .calendar__item:nth-child(7n - 1) {
@@ -52,7 +54,7 @@
 }
 
 .calendar__item:hover:not(.item-grey){
-    transform: scale(1.2);
+    transform: scale(1.15);
 }
 
 .calendar__item.item-grey {
@@ -69,6 +71,84 @@
   padding: 0;
 }
 
+.calendar__todo {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  right: 5px;
+  bottom: 5px;
+  border-radius: 100%;
+  background-color: green;
+}
+
+.calendar__todo.weekend {
+  background-color: white;
+}
+
+.week__wrapper {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  top: 70px;
+}
+
+.week__list {
+  gap: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-left: 50px;
+  width: 100%;
+  padding: 0;
+}
+
+.week__item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  width: 320px;
+  height: 20px;
+  font-weight: 700;
+  border: transparent;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all .3s ease-in-out;
+  opacity: 0;
+}
+
+.week__item.last-week-1 {
+  width: 20px;
+}
+
+.week__item.last-week-2 {
+  width: 70px;
+}
+
+.week__item.last-week-3 {
+  width: 120px;
+}
+
+.week__item.last-week-4 {
+  width: 170px;
+}
+
+.week__item.last-week-5 {
+  width: 220px;
+}
+
+.week__item.last-week-6 {
+  width: 270px;
+}
+
+.week__item.last-week-7 {
+  width: 320px;
+}
+
+.week__item:hover {
+    background-color: rgba(73, 61, 61, 0.4);
+    opacity: 1;
+}
 
 @media (max-width: 410px) {
   .calendar__item {
@@ -97,5 +177,10 @@
     height: 18px;
     font-weight: 500;
     border-radius: 10px;
+  }
+
+  .calendar__todo {
+    width: 5px;
+    height: 5px;
   }
 }

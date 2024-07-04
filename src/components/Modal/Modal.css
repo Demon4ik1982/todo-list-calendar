@@ -23,6 +23,7 @@
 .modal__content {
   position: relative;
   display: flex;
+  max-width: 370px;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -60,4 +61,11 @@
 
 .modal__btn:hover {
   transform: rotate(90deg)
+}
+
+@media (max-width: 410px) {
+  .modal__content {
+    max-width: 255px;
+    width: 100%;
+  }
 }

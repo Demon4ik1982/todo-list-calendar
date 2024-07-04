@@ -1,0 +1,86 @@
+.week-modal {
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.4);
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.5s;
+  z-index: 1000;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.week-modal.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.week-modal__wrapper {
+  padding: 35px 20px;
+  border-radius: 12px;
+  background-color: #fff;
+}
+
+.week-modal__list {
+  display: flex;
+  max-width: 285px;
+  padding: 0;
+  list-style: none;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.week-modal__descr {
+  margin: 0;
+  padding: 0;
+  position: relative;
+  font-size: 15px;
+  font-weight: 700;
+  text-align: left;
+}
+
+.week-modal__descr::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: 0;
+  background-color: black;
+}
+
+.week-modal__item-wrapper {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0;
+  padding-left: 20px;
+  padding-top: 10px;
+}
+
+.week-modal__item {
+  text-align: left;
+}
+
+.week-modal__item-done {
+  display: flex;
+  position: relative;
+}
+
+.week-modal__item-cheak {
+  position: absolute;
+  left: -20px;
+  top: 3px;
+  padding: 0;
+  margin: 0;
+}
+
+.week-modal__item-cheak path{
+  fill: green;
+}

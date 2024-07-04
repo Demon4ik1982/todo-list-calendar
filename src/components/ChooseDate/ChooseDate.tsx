@@ -5,7 +5,7 @@ import Modal from "../Modal/Modal"
 import "./ChooseDate.css"
 import Calendar from "../Calendar/Calendar"
 import SelectMonth from "../SelectMonth/SelectMonth"
-import { setNoteData } from "../../ui/setNoteData"
+import { setUserData } from "../../ui/setUserData"
 
 type UserToDo = {
     name: string,
@@ -19,6 +19,7 @@ const ChooseDate = ({name, setNewUser}: UserToDo) => {
   const [month, setMonth] = useState('')
   const [year, setYear] = useState(new Date().getFullYear().toString())
   const [today, setToday] = useState(new Date())
+  const [ball, setBall] = useState(false)
 
 
   useEffect(() => {
@@ -26,18 +27,25 @@ const ChooseDate = ({name, setNewUser}: UserToDo) => {
     setMonth(data)
   }, []);
 
-      const handleSubmit = () => {
-      setNoteData([''], `user`)
-  };
 
   return (
         <section className="calendar">
-        <h2>Добрый день {name}</h2>
-        <h2>Ваш список дел на <Button type='data-choose' onClick={() => setSelectMonth(true)}>{`${month} ${year}г.`}</Button></h2>
+        <div className="calendar__wrapper">
+          <h2 className="calendar__greeting">Добрый день {name}</h2>
+          <h3 className="calendar__info">Ваш список дел на <Button type='data-choose' onClick={() => setSelectMonth(true)}>{`${month} ${year}г.`}</Button></h3>
+          <div className="calendar__switch-wrapper">
+            <span className={ball ? "calendar__switch-name" : "calendar__switch-name switch"}>Дни</span>
+              <div className="calendar__switch" onClick={() => {setBall(!ball)}}>
+                <div className={ball ? "calendar__ball action" : "calendar__ball" }>
+                </div>
+              </div>
+            <span className={!ball ? "calendar__switch-name" : "calendar__switch-name switch"}>Недели</span>
+          </div>
+        </div>
         <SelectMonth active={selectMonth} setSelectMonth={setSelectMonth} setToday={setToday} setMonth={setMonth} setYear={setYear} year={year}/>
-        <Calendar setModalActive={setModalActive} setDayNote={setDayNote} today={today}/>
-        <Button type='primary' onClick={() => {setNewUser(''), handleSubmit}}>Выйти</Button>
-        <Modal active={modalActive} setActive={setModalActive} todayNote={dayNote} todayMonth={month} username={name}/>
+        <Calendar weekActive={ball} setModalActive={setModalActive} setDayNote={setDayNote} today={today} userName={name} month={month}/>
+        <Button type='primary' onClick={() => {setNewUser(''), setUserData('', 'user')}}>Выйти</Button>
+        <Modal active={modalActive} setActive={setModalActive} todayNote={dayNote} todayMonth={month} username={name} year={year}/>
         </section>
     )
 }

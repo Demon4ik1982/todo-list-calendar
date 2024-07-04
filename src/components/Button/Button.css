@@ -71,6 +71,7 @@ transition: all .3s ease-in-out;
 }
 
 .Button.data-choose {
+  max-width: 170px;
   border-radius: 10px;
   padding: 5px;
   box-shadow: none;
@@ -111,3 +112,20 @@ transition: all .3s ease-in-out;
   background-color: rgb(3, 80, 3);
 }
 
+@media (max-width: 410px) {
+  .Button.add {
+    font-size: 10px;
+    max-width: 100px;
+    width: 100%;
+  }
+
+  .Button.done {
+    font-size: 10px;
+    height: 30px;
+  }
+
+  .Button.delete {
+    font-size: 10px;
+    height: 30px;
+  }
+}
