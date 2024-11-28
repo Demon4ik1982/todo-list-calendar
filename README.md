@@ -18,4 +18,3 @@ npm install
 ```js
 npm run dev
 ```
-Приложение реалезованно с помощью React
